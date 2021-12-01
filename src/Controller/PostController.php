@@ -49,16 +49,13 @@ class PostController extends AbstractController
         if ($form->isSubmitted()) {
             //entity manager
             $em = $this->getDoctrine()->getManager();
-            
-            $file = $request->files->get('post')['attachment'];
-            
-            if($file) {
-                $filename = $fileUploader->uploadFile($file);
-
-                $post->setImage($filename);
-                $em->persist($post);
-                $em->flush();
-            }
+            // dump($request);
+            // die();
+            // $article = $request->get('post')['article'];
+            // dump($article);
+            // die();
+            $em->persist($post);
+            $em->flush();
             
             return $this->redirect($this->generateUrl('post.index'));
         }

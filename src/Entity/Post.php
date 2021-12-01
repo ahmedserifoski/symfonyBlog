@@ -23,7 +23,7 @@ class Post
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $image;
 
@@ -31,6 +31,11 @@ class Post
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="post")
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $article;
 
     public function getId(): ?int
     {
@@ -69,6 +74,18 @@ class Post
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getArticle(): ?string
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?string $article): self
+    {
+        $this->article = $article;
 
         return $this;
     }

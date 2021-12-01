@@ -3,8 +3,10 @@
 {% block body %}
 
 	<h1>{{post.title}} </h1>
-	<em>{{post.category}}</em>
+	
+	{# <em>{{post.category}}</em> #}
 	<hr>
 	<img src="{{ '/uploads/' ~ post.image}}" alt="" >
+	<p>{{post.article}} </p>
 
 {% endblock %}
