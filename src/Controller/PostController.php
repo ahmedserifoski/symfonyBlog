@@ -22,7 +22,7 @@ class PostController extends AbstractController
     public function index(PostRepository $postRepository): Response
     {
         $posts = $postRepository->findAll();
-
+        
         return $this->render('post/index.html.twig', [
             "posts" => $posts
         ]);
@@ -39,6 +39,7 @@ class PostController extends AbstractController
     public function create(Request $request, FileUploader $fileUploader)
     {
         // create a new post with title
+        //Post comes from the Entity folder, it's an object and we jsut create a new one
         $post = new Post();
         
         $form = $this->createForm(PostType::class, $post);

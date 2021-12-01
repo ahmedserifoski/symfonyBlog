@@ -36,7 +36,7 @@ class RegistrationController extends AbstractController
             ->getForm();
 
         $form->handleRequest($request);
-
+                //$data = $form->getData();
         if($form->isSubmitted()){
             $data = $form->getData();
             $user = new User();
